@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+
+  teamspeak:
+    image: teamspeak
+    container_name: teamspeak-server
+    restart: unless-stopped
+    ports:
+      - 9987:9987/udp
+      - 10011:10011
+      - 30033:30033
+    volumes:
+      - './teamspeak:/var/ts3server/'
+    environment:
+      TS3SERVER_DB_PLUGIN: ts3db_mariadb
+      TS3SERVER_DB_SQLCREATEPATH: create_mariadb
+      TS3SERVER_DB_HOST: db
+      TS3SERVER_DB_USER: root
+      TS3SERVER_DB_PASSWORD: example
+      TS3SERVER_DB_NAME: teamspeak
+      TS3SERVER_DB_WAITUNTILREADY: 30
+      TS3SERVER_LICENSE: accept
+
+  db:
+    image: mariadb
+    container_name: teamspeak-mariadb
+    restart: unless-stopped
+    volumes:
+      - './maria_db:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: teamspeak
+
+  sinusbot:
+    image: sinusbot/docker
+    container_name: teamspeak-sinusbot
+    restart: unless-stopped
+    ports:
+      - 8087:8087
+    volumes:
+      - './sinusbot:/opt/sinusbot/scripts'
+      - './sinusbot/data:/opt/sinusbot/data'
+    environment:
+      OVERRIDE_PASSWORD: Password1
