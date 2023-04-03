@@ -9,8 +9,8 @@ services:
     ports:
       - 51820:51820/udp
     volumes:
-      - '/config:/config'
-      - '/modules:/lib/modules'
+      - '/opt/wireguard-server/config:/config'
+      - '/lib/modules:/lib/modules'
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
