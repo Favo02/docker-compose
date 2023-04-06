@@ -25,6 +25,6 @@ services:
       - './data:/data:ro'
       - './backups:/backups'
     environment:
-      BACKUP_INTERVAL: '12h'
+      BACKUP_INTERVAL: '2h'
       RCON_HOST: minecraft
-      PRUNE_BACKUPS_DAYS: 30
+      PRUNE_BACKUPS_DAYS: 15
