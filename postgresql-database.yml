@@ -13,15 +13,3 @@ services:
     environment:
       POSTGRES_USER: server
       POSTGRES_PASSWORD: server
-
-  phppgadmin:
-    image: dpage/pgadmin4
-    container_name: postgresql-phppgadmin
-    restart: unless-stopped
-    ports:
-      - 5050:5050
-    volumes:
-      - './pgadmin-data:/var/lib/pgadmin'
-    environment:
-      PGADMIN_DEFAULT_EMAIL: server@server.com
-      PGADMIN_DEFAULT_PASSWORD: server
