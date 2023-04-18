@@ -16,6 +16,7 @@ services:
       EULA: 'TRUE'
       INIT_MEMORY: '2G'
       MAX_MEMORY: '3G'
+      TYPE: 'SPIGOT'
 
   backups:
     image: itzg/mc-backup
