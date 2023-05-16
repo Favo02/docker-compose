@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  [serve-react-app]:
+    build: .
+    container_name: [container-name]
+    restart: unless-stopped
+    ports:
+      - 3000:3000
