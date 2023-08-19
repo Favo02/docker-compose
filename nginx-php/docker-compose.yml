@@ -5,6 +5,7 @@ services:
   web:
     image: nginx:latest
     container_name: nginx-webserver
+    restart: unless-stopped
     ports:
       - 8888:80
     volumes:
@@ -14,7 +15,8 @@ services:
       - php-fpm
 
   php-fpm:
-    image: php:8-fpm
+    build: .
     container_name: nginx-webserver-php
+    restart: unless-stopped
     volumes:
       - './src:/var/www/html'
