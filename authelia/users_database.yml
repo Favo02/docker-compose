@@ -1,0 +1,8 @@
+users:
+  <username>:
+    displayname: "<username>"
+    password: "<password hash>"
+    email: <email>
+    groups:
+      - admins
+      - dev
