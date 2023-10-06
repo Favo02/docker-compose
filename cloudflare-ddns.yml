@@ -8,5 +8,5 @@ services:
     restart: unless-stopped
     environment:
       - API_KEY=
-      - ZONE=favo02.dev
+      - ZONE=<domain>
       - PROXIED=true

@@ -20,6 +20,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Rome
-      - SERVERURL=vpn.favo02.dev
+      - SERVERURL=vpn.<domain>
       - PEERS=2
       - ALLOWEDIPS=0.0.0.0/0
