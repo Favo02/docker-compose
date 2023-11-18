@@ -7,11 +7,11 @@ services:
     container_name: pihole-ad-blocker
     restart: unless-stopped
     ports:
-      - '53:53/tcp'
-      - '53:53/udp'
-      - '8080:80/tcp'
+      - ${PORT_1}:53/tcp
+      - ${PORT_1}:53/udp
+      - ${PORT_2}:80/tcp
     volumes:
       - './etc-pihole:/etc/pihole'
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
     environment:
-      TZ: 'Europe/Rome'
+      TZ: ${TIMEZONE}
