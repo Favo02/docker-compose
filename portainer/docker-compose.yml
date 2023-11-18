@@ -4,11 +4,11 @@ services:
 
   portainer:
     image: portainer/portainer-ce:latest
-    container_name: portainer-dashboard
+    container_name: portainer
     restart: unless-stopped
     ports:
-      - 9443:9443
-      - 8000:8000
+      - ${PORT_1}:9443
+      - ${PORT_2}:8000
     volumes:
       - './data:/data'
       - '/var/run/docker.sock:/var/run/docker.sock'
