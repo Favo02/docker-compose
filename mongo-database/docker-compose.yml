@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: mongo:4.4.6 # cannot upgrade due to server CPU
+    container_name: mongo-database
+    restart: unless-stopped
+    ports:
+      - ${PORT}:27017
+    volumes:
+      - './data-volume:/data/db'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${INIT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${INIT_PASSWORD}
