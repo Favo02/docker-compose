@@ -10,6 +10,6 @@ services:
       - './data:/data'
       - './letsencrypt:/etc/letsencrypt'
     ports:
-      - 81:81
-      - 80:80
-      - 443:443
+      - ${PORT_1}:81
+      - ${PORT_2}:80
+      - ${PORT_3}:443
