@@ -1,8 +1,8 @@
 users:
-  <username>:
-    displayname: "<username>"
-    password: "<password hash>"
-    email: <email>
+  ${USERNAME}>:
+    displayname: "${USERNAME}"
+    password: "${PASSWORD_HASH}"
+    email: ${EMAIL}
     groups:
       - admins
       - dev

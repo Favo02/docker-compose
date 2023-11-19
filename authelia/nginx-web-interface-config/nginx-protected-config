@@ -1,8 +1,8 @@
 location /authelia {
 internal;
-set $upstream_authelia http://192.168.1.<ip>:10000/api/verify; #change the IP and Port to match the IP and Port of your Authelia container
+set $upstream_authelia http://192.168.1.${SERVER_IP}:${PORT}/api/verify; #change the IP and Port to match the IP and Port of your Authelia container
 proxy_pass_request_body off;
-proxy_pass $upstream_authelia;    
+proxy_pass $upstream_authelia;
 proxy_set_header Content-Length "";
 
 # Timeout if the real server is dead
@@ -11,7 +11,7 @@ client_body_buffer_size 128k;
 proxy_set_header Host $host;
 proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
 proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $remote_addr; 
+proxy_set_header X-Forwarded-For $remote_addr;
 proxy_set_header X-Forwarded-Proto $scheme;
 proxy_set_header X-Forwarded-Host $http_host;
 proxy_set_header X-Forwarded-Uri $request_uri;
@@ -41,7 +41,7 @@ proxy_set_header Remote-User $user;
 proxy_set_header Remote-Email $email;
 proxy_set_header Remote-Groups $groups;
 
-error_page 401 =302 https://auth.<domain>/?rd=$target_url; #change this to match your authentication domain/subdomain
+error_page 401 =302 https://${DOMAIN}/?rd=$target_url; #change this to match your authentication domain/subdomain
 
 client_body_buffer_size 128k;
 

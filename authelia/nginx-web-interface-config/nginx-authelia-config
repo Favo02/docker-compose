@@ -1,5 +1,5 @@
 location / {
-set $upstream_authelia http://192.168.1.<ip>:10000; # This example assumes a Docker deployment. Change the IP and Port to your setup
+set $upstream_authelia http://192.168.1.${SERVER_IP}:${PORT}; # This example assumes a Docker deployment. Change the IP and Port to your setup
 proxy_pass $upstream_authelia;
 client_body_buffer_size 128k;
 
