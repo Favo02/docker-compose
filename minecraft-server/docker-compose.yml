@@ -19,7 +19,7 @@ services:
       TYPE: 'SPIGOT'
 
   backups:
-    image: itzg/mc-backup
+    image: itzg/mc-backup:latest
     container_name: minecraft-server-backups
     restart: unless-stopped
     volumes:
