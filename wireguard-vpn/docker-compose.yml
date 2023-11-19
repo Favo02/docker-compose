@@ -4,10 +4,10 @@ services:
 
   wireguard:
     image: lscr.io/linuxserver/wireguard:latest
-    container_name: wireguard-vpn-server
+    container_name: wireguard-vpn
     restart: unless-stopped
     ports:
-      - 51820:51820/udp
+      - ${PORT}:51820/udp
     volumes:
       - '/opt/wireguard-server/config:/config'
       - '/lib/modules:/lib/modules'
@@ -19,7 +19,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Rome
-      - SERVERURL=vpn.<domain>
-      - PEERS=2
-      - ALLOWEDIPS=0.0.0.0/0
+      - TZ=${TIMEZONE}
+      - SERVERURL=${DOMAIN}
+      - PEERS=${PEERS_NUMBER}
+      - ALLOWEDIPS=${ALLOWED_IPS}
